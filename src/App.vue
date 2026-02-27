@@ -1,23 +1,25 @@
 <script setup>
-import { ref } from 'vue'
-import TarotCard from './components/TarotCard.vue'
-import { drawRandom } from './data/tarot.js'
-import { useShake } from './composables/useShake.js'
+import { ref } from 'vue';
+import TarotCard from './components/TarotCard.vue';
+import { drawRandom } from './data/tarot.js';
+import { useShake } from './composables/useShake.js';
 
-const drawnCard = ref(null)
-const drawCount = ref(0)
-const isAnimating = ref(false)
+const drawnCard = ref(null);
+const drawCount = ref(0);
+const isAnimating = ref(false);
 
 function draw() {
-  if (isAnimating.value) return
-  isAnimating.value = true
-  drawnCard.value = drawRandom()
-  drawCount.value++
+  if (isAnimating.value) return;
+  isAnimating.value = true;
+  drawnCard.value = drawRandom();
+  drawCount.value++;
   // 플립 애니메이션 시간(650ms)만큼 잠금
-  setTimeout(() => { isAnimating.value = false }, 750)
+  setTimeout(() => {
+    isAnimating.value = false;
+  }, 750);
 }
 
-const { isGranted, needsPermission, requestPermission } = useShake(draw)
+const { isGranted, needsPermission, requestPermission } = useShake(draw);
 </script>
 
 <template>
@@ -147,7 +149,9 @@ main {
   font-size: 1rem;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
 }
 
 .btn-draw:hover:not(:disabled) {
@@ -169,7 +173,9 @@ main {
   font-size: 0.8rem;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
 }
 
 .btn-shake:hover {

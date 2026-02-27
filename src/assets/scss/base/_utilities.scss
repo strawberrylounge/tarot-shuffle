@@ -1,4 +1,4 @@
-@use "../abstracts/index" as *;
+@use '../abstracts/index' as *;
 
 /* =============================================================
 	Class Generators
@@ -6,14 +6,14 @@
 // generate padding and margin classes
 $sizes: size(0, 100);
 $position: (
-  "l": "left",
-  "r": "right",
-  "t": "top",
-  "b": bottom,
+  'l': 'left',
+  'r': 'right',
+  't': 'top',
+  'b': bottom,
 );
 $name-map: (
-  "m": "margin",
-  "p": "padding",
+  'm': 'margin',
+  'p': 'padding',
 );
 @mixin generate($name-map: (), $position: (), $sizes: ()) {
   @each $pre-key, $pre-value in $name-map {

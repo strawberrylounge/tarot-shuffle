@@ -12,7 +12,7 @@ ul.line-list {
     font-size: 0.875rem;
     word-break: keep-all;
     &::after {
-      content: "-";
+      content: '-';
       position: absolute;
       top: 50%;
       left: 0;
@@ -46,7 +46,7 @@ ul.dot-list2 {
     font-size: 0.875rem;
     word-break: keep-all;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       left: -14px;
@@ -82,7 +82,7 @@ ol.number-list-parenthesis {
     font-size: 0.875rem;
     word-break: keep-all;
     &::before {
-      content: counter(item) ") ";
+      content: counter(item) ') ';
       counter-increment: item;
     }
   }

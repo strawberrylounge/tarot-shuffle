@@ -1,24 +1,25 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 
 const props = defineProps({
   card: { type: Object, required: true },
-})
+});
 
-const flipped = ref(false)
-const imageError = ref(false)
+const flipped = ref(false);
+const imageError = ref(false);
 
 onMounted(() => {
   requestAnimationFrame(() => {
-    setTimeout(() => { flipped.value = true }, 80)
-  })
-})
+    setTimeout(() => {
+      flipped.value = true;
+    }, 80);
+  });
+});
 </script>
 
 <template>
   <div class="card-scene" :class="{ flipped }">
     <div class="card-inner">
-
       <!-- 뒷면 -->
       <div class="card-face card-back"></div>
 
@@ -36,7 +37,6 @@ onMounted(() => {
           <p class="placeholder-name">{{ card.name }}</p>
         </div>
       </div>
-
     </div>
   </div>
 </template>
