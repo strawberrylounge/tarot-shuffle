@@ -35,7 +35,10 @@ const MINOR_ARCANA = SUITS.flatMap((suit, si) =>
   }))
 )
 
-export const TAROT_DECK = [...MAJOR_ARCANA, ...MINOR_ARCANA]
+export const TAROT_DECK = [...MAJOR_ARCANA, ...MINOR_ARCANA].map(card => ({
+  ...card,
+  image: `/cards/${card.id}.jpg`,
+}))
 
 export function drawRandom() {
   return TAROT_DECK[Math.floor(Math.random() * TAROT_DECK.length)]
