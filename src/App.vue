@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from 'vue';
-import TarotCard from './components/TarotCard.vue';
-import { drawRandom } from './data/tarot.js';
-import { useShake } from './composables/useShake.js';
+import { ref } from "vue";
+import TarotCard from "./components/TarotCard.vue";
+import { drawRandom } from "./data/tarot.js";
+import { useShake } from "./composables/useShake.js";
 
 const drawnCard = ref(null);
 const drawCount = ref(0);
@@ -49,7 +49,7 @@ const { isGranted, needsPermission, requestPermission } = useShake(draw);
 
     <footer class="controls">
       <button class="btn-draw" @click.stop="draw" :disabled="isAnimating">
-        {{ drawnCard ? '다시 뽑기' : '카드 뽑기' }}
+        {{ drawnCard ? "다시 뽑기" : "카드 뽑기" }}
       </button>
 
       <!-- iOS: 흔들기 권한 버튼 -->
@@ -116,7 +116,7 @@ main {
 
 /* 덱 높이 확보용 빈 박스 */
 .deck-container::before {
-  content: '';
+  content: "";
   display: block;
   width: 200px;
   height: 340px;

@@ -1,5 +1,5 @@
-@use '../abstracts/index' as *;
-@use './icons' as i;
+@use "../abstracts/index" as *;
+@use "./icons" as i;
 
 // input
 input.input {
@@ -41,7 +41,7 @@ input.input {
   cursor: pointer;
   user-select: none;
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     width: 0;
@@ -79,14 +79,14 @@ input.input {
     transition: all 0.2s ease;
     // check icon
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 16px;
       height: 11px;
-      background-image: url('#{$img-icon}icon-check@2x.png');
+      background-image: url("#{$img-icon}icon-check@2x.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -109,7 +109,7 @@ input.input {
   padding: 0 $spacing;
   border-radius: 10px;
   border: 1px solid color(gray150);
-  background: color('white');
+  background: color("white");
   line-height: 60px;
   cursor: pointer;
   @include mobile {
@@ -140,7 +140,7 @@ input.input {
     max-height: 240px;
     padding: $spacing;
     border: 1px solid color(mint);
-    background: color('white');
+    background: color("white");
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;

@@ -1,4 +1,4 @@
-@use '../abstracts/index' as *;
+@use "../abstracts/index" as *;
 
 /* 로그인, 비밀번호 찾기 및 변경 페이지 */
 // 공통
@@ -221,7 +221,7 @@
       h2 {
         @include flexbox(center);
         flex-direction: column;
-        color: color('coral-pink');
+        color: color("coral-pink");
         @include mobile {
           font-size: rem(40);
         }

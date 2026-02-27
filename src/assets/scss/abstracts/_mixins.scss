@@ -1,5 +1,5 @@
-@use './variables' as v;
-@use './responsive' as r;
+@use "./variables" as v;
+@use "./responsive" as r;
 
 /* =============================================================
 	Layout
@@ -36,7 +36,7 @@
 // clearfix
 @mixin clearfix {
   &::after {
-    content: '';
+    content: "";
     display: block;
     clear: both;
   }
@@ -87,7 +87,7 @@
     width: $width;
     height: $height;
     line-height: $height;
-    background-image: url('#{$url}icon-#{$name}.png');
+    background-image: url("#{$url}icon-#{$name}.png");
   }
 }
 
@@ -103,7 +103,7 @@
   $url: #{v.$img-icon}
 ) {
   .icon-#{$name} {
-    background-image: url('#{$url}icon-#{$name}@2x.png');
+    background-image: url("#{$url}icon-#{$name}@2x.png");
 
     @include r.mobile-tablet {
       width: $width-m;
@@ -133,7 +133,7 @@
   $svg-url,
   $color: currentColor
 ) {
-  content: '';
+  content: "";
   position: absolute;
   top: $top;
   left: $left;

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 const props = defineProps({
   card: { type: Object, required: true },
@@ -71,7 +71,7 @@ onMounted(() => {
 
 /* 뒷면 */
 .card-back {
-  background-image: url('/card-back.jpg');
+  background-image: url("/card-back.jpg");
   background-size: cover;
   background-position: center;
   border: 2px solid #d4af37;
