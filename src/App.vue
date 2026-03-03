@@ -10,12 +10,15 @@ const drawnCard = ref(null);
 const drawCount = ref(0);
 const isAnimating = ref(false);
 
-function draw() {
+async function draw() {
+  // iOS: 첫 탭에서 모션 권한 요청 (유저 제스처 안에서만 호출 가능)
+  if (needsPermission && !isGranted.value) {
+    await requestPermission();
+  }
   if (isAnimating.value) return;
   isAnimating.value = true;
   drawnCard.value = drawRandom();
   drawCount.value++;
-  // 플립 애니메이션 시간(650ms)만큼 잠금
   setTimeout(() => {
     isAnimating.value = false;
   }, 750);
