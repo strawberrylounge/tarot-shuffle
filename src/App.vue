@@ -76,8 +76,9 @@ const { isGranted, needsPermission, requestPermission } = useShake(draw);
 @use "./assets/scss/abstracts/index" as *;
 
 main {
-  @include flexbox();
+  @include flexbox(center);
   flex-direction: column;
+  flex: 1;
   padding: 0 16px 40px;
   background: color("dark-navy");
   .header {
