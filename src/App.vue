@@ -61,13 +61,13 @@ const { isGranted, needsPermission, requestPermission } = useShake(draw);
       </button>
 
       <!-- iOS: 흔들기 권한 버튼 -->
-      <!-- <button
+      <button
         v-if="needsPermission && !isGranted"
         class="btn-shake"
         @click.stop="requestPermission"
       >
         흔들기 활성화
-      </button> -->
+      </button>
     </div>
   </main>
 </template>
@@ -184,25 +184,16 @@ main {
         cursor: not-allowed;
       }
     }
+    .btn-shake {
+      font-size: rem(12);
+      color: color("gold-dark");
+      text-decoration: underline;
+      transition: color 0.2s;
+      cursor: pointer;
+      &:hover {
+        color: color("gold");
+      }
+    }
   }
-}
-
-.btn-shake {
-  padding: 8px 20px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition:
-    border-color 0.2s,
-    color 0.2s;
-}
-
-.btn-shake:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.8);
 }
 </style>
