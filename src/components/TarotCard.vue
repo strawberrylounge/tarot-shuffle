@@ -29,97 +29,97 @@ onMounted(() => {
           v-if="!imageError"
           :src="card.image"
           :alt="card.name"
-          class="card-img"
+          class="img img-contain"
           @error="imageError = true"
         />
+        <!-- fallback -->
         <div v-else class="card-placeholder">
           <p class="placeholder-suit">{{ card.suit.toUpperCase() }}</p>
           <p class="placeholder-name">{{ card.name }}</p>
         </div>
       </div>
     </div>
+
+    <div class="card-name">{{ card.name }}</div>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "../assets/scss/abstracts/index" as *;
+
 .card-scene {
-  width: 200px;
-  height: 340px;
-  perspective: 1200px;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-scene.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-/* 뒷면 */
-.card-back {
-  background-image: url("/card-back.jpg");
-  background-size: cover;
-  background-position: center;
-  border: 2px solid #d4af37;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-}
-
-/* 앞면 */
-.card-front {
-  background: #0f0a1e;
-  border: 2px solid #d4af37;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-  transform: rotateY(180deg);
-}
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-/* 이미지 없을 때 placeholder */
-.card-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
+  @include flexbox(center, center, 12px);
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 24px;
-  box-sizing: border-box;
-}
+  width: 200px;
+  height: 420px;
+  max-height: 420px;
+  perspective: 1200px;
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    max-height: 340px;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      cursor: pointer;
 
-.placeholder-suit {
-  margin: 0;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: #d4af37;
-  opacity: 0.7;
-}
+      // 뒷면
+      &.card-back {
+        background: {
+          image: url("/card-back.jpg");
+          size: cover;
+          position: center;
+        }
+        border: 2px solid color("gold");
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      }
+      // 앞면
+      &.card-front {
+        border: 2px solid color("gold");
+        background: color("dark-navy");
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+        transform: rotateY(180deg);
+        .card-img {
+        }
+      }
+    }
 
-.placeholder-name {
-  margin: 0;
-  font-size: 1rem;
-  color: #e8dcc8;
-  text-align: center;
-  letter-spacing: 0.05em;
+    // img fallback
+    .card-placeholder {
+      @include flexbox(center, center, 10px);
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      .placeholder-suit {
+        font-size: rem(14);
+        color: color("gold");
+        opacity: 0.7;
+      }
+      .placeholder-name {
+        color: #e8dcc8;
+        text-align: center;
+      }
+    }
+  }
+  .card-name {
+    font-size: rem(14);
+    color: color("gold");
+  }
+
+  // card-flipped
+  &.flipped {
+    .card-inner {
+      transform: rotateY(180deg);
+    }
+  }
 }
 </style>

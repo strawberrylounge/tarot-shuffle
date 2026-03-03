@@ -552,4 +552,9 @@
   ::after {
     pointer-events: none;
   }
+
+  /* 모바일 탭 하이라이트 제거 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

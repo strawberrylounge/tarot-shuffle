@@ -223,17 +223,17 @@ $name-map: (
 h1.logo {
   width: 300px;
   height: 28px;
-  background: url(#{$img}common/logo.png) no-repeat center / contain;
+  // background: url(#{$img}common/logo.png) no-repeat center / contain;
 
   @include tablet {
     width: 280px;
     height: 26px;
-    background: url(#{$img}common/logo@2x.png) no-repeat center / contain;
+    // background: url(#{$img}common/logo@2x.png) no-repeat center / contain;
   }
   @include mobile {
     width: 236px;
     height: 22px;
-    background: url(#{$img}common/logo@2x.png) no-repeat center / contain;
+    // background: url(#{$img}common/logo@2x.png) no-repeat center / contain;
   }
 }
 // 버튼 내 SVG 아이콘 크기 조정
