@@ -1,10 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 import TarotCard from "./components/TarotCard.vue";
 
 import { drawRandom } from "./data/tarot.js";
 import { useShake } from "./composables/useShake.js";
+
+const isReady = ref(false);
+
+onMounted(() => {
+  const img = new Image();
+  img.src = "/card-back.jpg";
+  img.onload = () => (isReady.value = true);
+  img.onerror = () => (isReady.value = true); // 실패해도 블로킹 안 함
+});
 
 const drawnCard = ref(null);
 const drawCount = ref(0);
@@ -28,7 +37,8 @@ const { isGranted, needsPermission, requestPermission } = useShake(draw);
 </script>
 
 <template>
-  <main>
+  <div v-if="!isReady" class="loading">Loading...</div>
+  <main v-else>
     <header class="header">
       <h1 class="title">✦ TEST ✦</h1>
     </header>
@@ -196,5 +206,16 @@ main {
       }
     }
   }
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color("dark-navy");
+  color: color("gold-muted");
+  font-size: rem(14);
+  letter-spacing: 0.2em;
 }
 </style>
